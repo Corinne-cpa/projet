@@ -1,0 +1,29 @@
+<?php
+
+require_once 'Framework/Model.php';
+
+/**
+ * 
+ * 
+ * 
+ */
+class Participe extends Model {
+	
+	/**
+     * ajout un enfant à un jeu organise
+     */
+    public function ajoutenfant($id_enfant) {
+        $sql = 'insert into T_PARTICIPE(ENFANT_ID)'
+                . ' values(?,)';
+
+        $this->executeRequest($sql, array($id_enfant));
+    }
+
+    /**
+     * suprime un enfant d un jeu organise
+     */
+    public function deleteEnfant($id_enfant) {
+        $sql = 'delete from T_ORGJEUX where ENFANT_ID=?';
+        $this->executeRequest($sql, array($id_enfant));
+		
+		}
